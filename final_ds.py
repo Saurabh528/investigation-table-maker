@@ -205,7 +205,7 @@ if final_transcription:
             # Convert the extracted string to a Python dictionary using ast.literal_eval
             investigations_dict = ast.literal_eval(investigations_str)
             st.session_state.investigations_dict = investigations_dict
-            st.write(investigations_dict)
+            #st.write(investigations_dict)
         
             
         except (SyntaxError, ValueError) as e:
@@ -239,7 +239,7 @@ if final_transcription:
             # Load the string as a JSON-compatible dictionary
             advise_dict = json.loads(advise_str)
             st.session_state.advise_dict = advise_dict
-            st.write(advise_dict)
+            #st.write(advise_dict)
             
         except json.JSONDecodeError as e:
             st.write(f"Error parsing dictionary: {e}")
