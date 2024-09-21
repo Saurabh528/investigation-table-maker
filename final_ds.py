@@ -248,10 +248,6 @@ if final_transcription:
         st.write("Rerun the app") 
     try:
         create_patient_document(st.session_state.investigations_dict,st.session_state.advise_dict)
-    except Exception as e:
-        st.write("Reset and Rerun The app")
-        
-    try:
         file_path = "final_dis_summary.docx"
         with open(file_path, "rb") as file:
             file_data = file.read()
@@ -263,8 +259,11 @@ if final_transcription:
             file_name="discharge_summary.docx",     # Filename for the downloaded file
             mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document'  # Mime type for .docx
         )
-    except json.JSONDecodeError as e:
-            st.write(f"Error saving file: {e}")
+    except Exception as e:
+        st.write("Reset and Rerun The app")
+        
+        
+        
 
 
 
