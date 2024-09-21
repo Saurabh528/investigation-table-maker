@@ -246,8 +246,11 @@ if final_transcription:
 
     except Exception as e:
         st.write("Rerun the app") 
-
-    create_patient_document(st.session_state.investigations_dict,st.session_state.advise_dict)
+    try:
+        create_patient_document(st.session_state.investigations_dict,st.session_state.advise_dict)
+    except Exception as e:
+        st.write("Reset and Rerun The app")
+        
     try:
         file_path = "final_dis_summary.docx"
         with open(file_path, "rb") as file:
